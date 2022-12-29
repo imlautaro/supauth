@@ -1,0 +1,22 @@
+{
+	"name": "supauth",
+	"type": "module",
+	"version": "0.0.1",
+	"main": "./nuxt.config.ts",
+	"scripts": {
+		"dev": "nuxi prepare & nuxi dev .playground",
+		"build": "nuxi build .playground",
+		"generate": "nuxi generate .playground",
+		"preview": "nuxi preview .playground"
+	},
+	"devDependencies": {
+		"@types/uuid": "^9.0.0",
+		"nuxt": "^3.0.0"
+	},
+	"dependencies": {
+		"@nuxtjs/supabase": "^0.3.0",
+		"email-validator": "^2.0.4",
+		"oxecore": "^0.0.1",
+		"uuid": "^9.0.0"
+	}
+}
