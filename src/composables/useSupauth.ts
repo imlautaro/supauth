@@ -1,5 +1,4 @@
 import { Provider } from '@supabase/gotrue-js'
-import { validate } from 'email-validator'
 
 export default () => {
 	const supaAuth = useSupabaseAuthClient().auth
