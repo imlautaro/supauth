@@ -1,6 +1,6 @@
 export default defineAppConfig({
 	supauth: {
-		providers: [''],
+		providers: false,
 		redirect: '/',
 		legalAdvice: false,
 		confirm: false,
