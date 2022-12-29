@@ -1,73 +1,81 @@
-# Nuxt Layer Starter
+![supauth](https://repository-images.githubusercontent.com/583316951/024e824a-46ee-49b6-8d6a-0c03d8be10fd)
 
-Create Nuxt extendable layer with this GitHub template.
+# Supauth for Nuxt
+
+Nuxt Layer with all you need to start your next Nuxt + Supabase project without having to worry about the auth system.
+
+🚧 This layer is still an experiment that will have many changes in the future, but feel free to try it and suggest changes or report problems.
+
+## Features
+
+-   Sign up with email and password
+-   Sign in with providers (Google & GitHub)
+-   Auth middlewares
+
+This layer is based on the [oxecore](https://github.com/imlautaro/oxecore) layer which includes the UnoCSS, Nuxt-Icon and VueUse modules by default, although you can expect that in the future it will not have dependencies that alter your project outside of the login screens.
+
+## To do
+
+-   Accept all providers
+-   Add magic-link login
+-   Internationalization
+-   Reset password page
 
 ## Setup
 
-Make sure to install the dependencies:
-
 ```bash
-pnpm install
+npm i -D supauth # yarn add -D supauth
 ```
 
-## Working on your theme
-
-Your theme is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
-
-The `.playground` directory should help you on trying your theme during development.
-
-Running `pnpm dev` will prepare and boot `.playground` directory, which imports your theme itself.
-
-## Distributing your theme
-
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
-
-To do so, you only have to check if `files` in `package.json` are valid, then run:
-
-```bash
-npm publish --access public
-```
-
-Once done, your users will only have to run:
-
-```bash
-npm install --save your-theme
-```
-
-Then add the dependency to their `extends` in `nuxt.config`:
-
-```ts
-defineNuxtConfig({
-  extends: 'your-theme'
+```tsx
+// ~~/nuxt.config.ts
+export default defineNuxtConfig({
+	extends: ['supauth'],
 })
 ```
 
-## Development Server
+## Modules Preset
 
-Start the development server on http://localhost:3000
+-   Supabase
+-   UnoCSS\*
+-   Nuxt Icon\*
+-   VueUse\*
 
-```bash
-pnpm dev
+\*coming from [oxecore](https://github.com/imlautaro/oxecore) layer
+
+## Usage
+
+To start using this layer, just follow the setup instructions and create a .env file with your Supabase credentials:
+
+```tsx
+// .env
+SUPABASE_KEY=
+SUPABASE_URL=
 ```
 
-## Production
+Then, you can run your project and go to /login to sign in or /register to create a new user.
 
-Build the application for production:
+Since this layer is using the `@nuxtjs/supabase` module, you can of course use all the functions and utilities coming from that module (`useSupabaseClient`, `useSupabaseUser`, etc).
 
-```bash
-pnpm build
+### Options
+
+```tsx
+export default defineAppConfig({
+	supauth: {
+		confirm: true, // enable if you have email confirmation on
+		redirect: '/', // the path you want to redirect your users after login
+		providers: ['google', 'github'], // the oauth providers you want to enable
+		legalAdvice: {
+			privacy: '/privacy-policy',
+			terms: '/terms-and-conditions',
+		}, // legal links to show below the auth forms. you can set it to false to don't show any legal advice
+	},
+})
 ```
 
-Or statically generate it with:
+### Middlewares
 
-```bash
-pnpm generate
-```
+-   authenticated (if there isn’t a user logged-in, you’re gonna be redirected to /login)
+-   unauthenticated (if there is a user logged-in, you’re gonna be redirected to /, or the redirect path in the options of the layer.
 
-Locally preview production build:
-
-```bash
-pnpm preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+Any comment, suggestion, report or pull request is absolutely welcome!
