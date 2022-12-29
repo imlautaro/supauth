@@ -7,7 +7,7 @@ const { loginWith } = useSupauth()
 </script>
 
 <template>
-	<Stack v-if="providers.length" gap="4" vertical>
+	<Stack v-if="providers?.length" gap="4" vertical>
 		<SaSecondaryButton
 			v-if="providers.includes('google')"
 			@click="loginWith('google')"
@@ -23,5 +23,5 @@ const { loginWith } = useSupauth()
 			Continue with GitHub
 		</SaSecondaryButton>
 	</Stack>
-	<span v-if="providers.length" class="mx-auto text-gray-600">or</span>
+	<span v-if="providers?.length" class="mx-auto text-gray-600">or</span>
 </template>
