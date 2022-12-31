@@ -45,6 +45,15 @@ export default () => {
 		}
 	}
 
+	const loginWithOtp = async () => {
+		const { error } = await supaAuth.signInWithOtp({
+			email: credentials.email,
+		})
+		if (error) {
+			errors.general = error.message
+		}
+	}
+
 	const login = async () => {
 		if (!credentials.email || !credentials.password) {
 			// show error
@@ -109,5 +118,13 @@ export default () => {
 		}
 	}
 
-	return { credentials, loginWith, login, register, pending, errors }
+	return {
+		credentials,
+		loginWith,
+		login,
+		register,
+		pending,
+		errors,
+		loginWithOtp,
+	}
 }
