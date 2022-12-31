@@ -1,3 +1,5 @@
+import { Provider } from '@supabase/gotrue-js'
+
 export default defineAppConfig({
 	supauth: {
 		providers: false,
@@ -10,7 +12,7 @@ export default defineAppConfig({
 declare module '@nuxt/schema' {
 	interface AppConfigInput {
 		supauth?: {
-			providers?: boolean | ('google' | 'github')[]
+			providers?: boolean | Provider[]
 			redirect?: string
 			legalAdvice?: boolean | { terms: string; privacy: string }
 			confirm?: boolean

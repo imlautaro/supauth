@@ -9,14 +9,13 @@ Nuxt Layer with all you need to start your next Nuxt + Supabase project without 
 ## Features
 
 -   Sign up with email and password
--   Sign in with providers (Google & GitHub)
+-   Sign in with providers
 -   Auth middlewares
 
 This layer is based on the [oxecore](https://github.com/imlautaro/oxecore) layer which includes the UnoCSS, Nuxt-Icon and VueUse modules by default, although you can expect that in the future it will not have dependencies that alter your project outside of the login screens.
 
 ## To do
 
--   Accept all providers
 -   Add magic-link login
 -   Internationalization
 -   Reset password page
