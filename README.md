@@ -4,6 +4,8 @@
 
 Nuxt Layer with all you need to start your next Nuxt + Supabase project without having to worry about the auth system.
 
+👉 [Check the docs here!](https://supauth.vercel.app)
+
 🚧 This layer is still an experiment that will have many changes in the future, but feel free to try it and suggest changes or report problems.
 
 ## Features
