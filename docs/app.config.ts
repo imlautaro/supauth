@@ -2,7 +2,7 @@ export default defineAppConfig({
 	docus: {
 		title: 'Supauth',
 		description: `Don't worry about login screens anymore when creating your next green-stack project!`,
-		image: 'https://user-images.githubusercontent.com/904724/185365452-87b7ca7b-6030-4813-a2db-5e65c785bf88.png',
+		image: 'https://repository-images.githubusercontent.com/583316951/024e824a-46ee-49b6-8d6a-0c03d8be10fd',
 		socials: {
 			github: 'imlautaro/supauth',
 		},
